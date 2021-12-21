@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Assignment 8
+{% endblock %}
+
+{% block content %}
+
+    {{ super() }}
+    <div class="body">
+
+        <h2>I'm {{ first_name | default('unknown', true) | lower() }} {{ last_name | default('unknown', true) | upper() }}!</h2>
+
+        {% if first_name %}
+            <h3>Shay's hobbies:</h3>
+            <ol>
+                {% for hobby in hobbies %}
+                    <li>{{ hobby }}</li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <p>Unfortunately I'm unable to show you my hobbies</p>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+body {
+    color: rgb(0, 0, 139);
+}
+
+.content {
+    text-align: center;
+}
+
+.menu {
+    background-color: rosybrown;
+    margin: 0;
+    padding: 16px;
+    width: 100%;
+}
+
+.menu a {
+    padding: 0px 8px;
+    color: rosybrown;
+    text-decoration: unset;
+}
+
+.menu a:hover {
+    color: #99738e;
+}

@@ -1,0 +1,38 @@
+:root{
+    --dBlue: #242583;
+    --eggplant: #553d67;
+    --pink: #f64c72;
+    --makeup: #99738e;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    background-color: var(--makeup);
+}
+h2{
+    font-size: 36px;
+    color: var(--dBlue);
+    padding: 4px;
+    margin: 4px;
+}
+#email{
+    background-color: var(--eggplant);
+    border: 2px solid grey;
+
+}
+.intro{
+    font:bold;
+    font-size:26px;
+    color:blue
+}
+
+input.Buxa{
+    color: var(--eggplant);
+    padding: 4px;
+    margin: 4px;
+}
+
+a{
+    color:pink;
+}
+
