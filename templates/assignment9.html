@@ -36,7 +36,7 @@
 
     <h4> Registration </h4>
     {% if session.name %}
-        <h4>Hello {{ session.name }}</h4>
+        <h4>Hello {{ session.name }}, we're glad to have you back with us!</h4>
         <form method="GET" action="/logout">
             <input type="submit" value="Log Out">
         </form>
