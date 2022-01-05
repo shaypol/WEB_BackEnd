@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Users {% endblock %}
+
+{% block content %}
+    <div class="content">
+        <p>{{ Message }}</p>
+        <h3>CREATE USER:</h3>
+        <form action="/insert_user" method="POST">
+            Name: <input name="NAME" type="TEXT"> <br><br>
+            Email: <input name="EMAIL" type="EMAIL"> <br><br>
+            <input type="SUBMIT" value="INSERT">
+        </form>
+
+        <h3>DELETE USER:</h3>
+        <form action="/delete_user" method="POST">
+            Name: <input name="NAME" type="TEXT"> <br><br>
+            <input type="SUBMIT" value="DELETE">
+        </form>
+
+        <h3>UPDATE USER:</h3>
+        <form action="/update_user" method="POST">
+            Name: <input name="NAME" type="text"> <br><br>
+            New Email: <input name="NEW_EMAIL" type="EMAIL"> <br><br>
+            <input type="SUBMIT" value="UPDATE">
+        </form>
+
+        {% if list %}
+            <h3>Users:</h3>
+            <ul>
+                {% for user in list %}
+                <li>
+                    <b>Name:</b> {{ user.name }}
+                    <b>Email:</b> {{ user.email }}
+                </li>
+                {% endfor %}
+            </ul>
+
+
+
+        {% else %}
+        <br>
+        <form action="/list" method="GET">
+            <input type="SUBMIT" value="SHOW USERS">
+        </form>
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

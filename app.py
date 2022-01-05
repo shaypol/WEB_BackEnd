@@ -1,42 +1,10 @@
 from flask import Flask, redirect, url_for, render_template, session, request
-# from  interact_with_db import interact_db
+from pages.Assignment10.Assignment10 import Assignment10
 
 
 app = Flask(__name__)
 app.secret_key = '123'
 
-
-# # ------------- DATABASE CONNECTION --------------- #
-# def interact_db(query, query_type: str):
-#     return_value = False
-#     connection = mysql.connector.connect(
-#         host="localhost",
-#         user="root",
-#         password="0548030690Sp",
-#         database='myappnewdb'
-#     )
-#
-#     cursor = connection.cursor(named_tuple=True)
-#     cursor.execute(query)
-#
-#     if query_type == 'commit':
-#         # Use for INSERT, UPDATE, DELETE statements.
-#         # Returns: The number of rows affected by the query (a non-negative int).
-#         connection.commit()
-#         return_value = True
-#
-#     if query_type == 'fetch':
-#         # Use for SELECT statement.
-#         # Returns: False if the query failed, or the result of the query if it succeeded.
-#         query_result = cursor.fetchall()
-#         return_value = query_result
-#
-#     connection.close()
-#     cursor.close()
-#     return return_value
-#
-#
-# # ------------------------------------------------- #
 
 @app.route('/home')
 def shalom_olam():  # put application's code here
@@ -100,6 +68,9 @@ def search_reg_func():
 def log_out_func():
     session['name'] = ''
     return render_template('assignment9.html')
+
+
+app.register_blueprint(Assignment10)
 
 
 if __name__ == '__main__':
