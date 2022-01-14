@@ -77,7 +77,7 @@ app.register_blueprint(Assignment10)
 
 
 @app.route("/Assignment11/users")
-def assignment11_page():
+def assignment11_users():
     s_query = "select * from users"
     query_res = query_json(query=s_query)
     return json.dumps(query_res)
