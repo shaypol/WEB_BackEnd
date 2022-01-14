@@ -1,5 +1,8 @@
 from flask import Flask, redirect, url_for, render_template, session, request
 from pages.Assignment10.Assignment10 import Assignment10
+import json
+import requests
+from interact_with_DB import query_json
 
 
 app = Flask(__name__)
@@ -71,6 +74,23 @@ def log_out_func():
 
 
 app.register_blueprint(Assignment10)
+
+
+@app.route("/Assignment11/users")
+def assignment11_page():
+    s_query = "select * from users"
+    query_res = query_json(query=s_query)
+    return json.dumps(query_res)
+
+
+@app.route("/Assignment11/outer_source", methods=['GET'])
+def assignment11_outer_source():
+    if 'num' in request.args:
+        num = request.args['num']
+        res = requests.get(url=f"https://reqres.in/api/users/{num}")
+        res = res.json()
+        return render_template('Assignment11.html', user=res['data'])
+    return render_template('Assignment11.html')
 
 
 if __name__ == '__main__':
