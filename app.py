@@ -77,7 +77,7 @@ app.register_blueprint(Assignment10)
 
 
 @app.route("/Assignment11/users")
-def assignment11_page():
+def assignment11_users():
     s_query = "select * from users"
     query_res = query_json(query=s_query)
     return json.dumps(query_res)
@@ -91,6 +91,16 @@ def assignment11_outer_source():
         res = res.json()
         return render_template('Assignment11.html', user=res['data'])
     return render_template('Assignment11.html')
+
+
+@app.route('/assignment12/restapi_users', defaults={'user_id': 1})
+@app.route('/assignment12/restapi_users/<int:user_id>')
+def assignment12(user_id):
+    query = 'select * from users where id=%s' % user_id
+    res = query_json(query=query)
+    if len(res) == 0:
+        res = [{'status': 'failed', 'message': 'User was not found, try again'}]
+    return json.dumps(res)
 
 
 if __name__ == '__main__':
