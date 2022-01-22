@@ -99,7 +99,7 @@ def assignment12(user_id):
     query = 'select * from users where id=%s' % user_id
     res = query_json(query=query)
     if len(res) == 0:
-        res = [{'status': 'failed', 'message': 'User was not found, try again'}]
+        res = [{'code': '404', 'message': 'User was not found, try again'}]
     return json.dumps(res)
 
 
